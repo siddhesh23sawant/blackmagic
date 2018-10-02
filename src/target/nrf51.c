@@ -104,7 +104,7 @@ static void nrf51_add_flash(target *t,
 bool nrf51_probe(target *t)
 {
 	t->idcode = target_mem_read32(t, NRF51_FICR_CONFIGID) & 0xFFFF;
-
+t->target_options |= CORTEXM_TOPT_INHIBIT_SRST;
 	switch (t->idcode) {
 	case 0x001D: /* nRF51822 (rev 1) QFAA CA/C0 */
 	case 0x001E: /* nRF51422 (rev 1) QFAA CA */
